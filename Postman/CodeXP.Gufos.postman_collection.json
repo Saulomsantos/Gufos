@@ -14,14 +14,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/api/Categorias",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Categorias",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Categorias"
 							]
 						}
@@ -34,14 +31,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/api/Categorias/1",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Categorias/1",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Categorias",
 								"1"
 							]
@@ -71,14 +65,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Categorias/",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Categorias/",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Categorias",
 								""
 							]
@@ -100,7 +91,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"categoriaId\": 4,\n\t\"titulo\": \"Update Teste\"\n}",
+							"raw": "{\n\t\"categoriaId\": 6,\n\t\"titulo\": \"Update Teste\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,16 +99,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Categorias/4",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Categorias/6",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Categorias",
-								"4"
+								"6"
 							]
 						}
 					},
@@ -145,16 +133,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Categorias/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Categorias/6",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Categorias",
-								"3"
+								"6"
 							]
 						}
 					},
@@ -177,7 +162,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Palavra\" : \"e\"\n}",
+							"raw": "\"e\"",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -185,14 +170,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Categorias/FiltrarPorNome",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Categorias/FiltrarPorNome",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Categorias",
 								"FiltrarPorNome"
 							]
@@ -225,14 +207,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Categorias/Ordenar",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Categorias/Ordenar",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Categorias",
 								"Ordenar"
 							]
@@ -249,17 +228,26 @@
 					"name": "TiposUsuario.Listar",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "https://localhost:5001/api/TiposUsuario",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/TiposUsuario",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"TiposUsuario"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -271,14 +259,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/api/TiposUsuario/1",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/TiposUsuario/1",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"TiposUsuario",
 								"1"
 							]
@@ -308,14 +293,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/TiposUsuario/",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/TiposUsuario/",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"TiposUsuario",
 								""
 							]
@@ -337,7 +319,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"tipoUsuarioId\": 3,\n\t\"titulo\": \"Update Teste\"\n}",
+							"raw": "{\n\t\"tipoUsuarioId\": 4,\n\t\"titulo\": \"Update Teste\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -345,16 +327,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/TiposUsuario/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/TiposUsuario/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"TiposUsuario",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -382,16 +361,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/TiposUsuario/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/TiposUsuario/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"TiposUsuario",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -414,7 +390,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Palavra\" : \"adm\"\n}",
+							"raw": "\"adm\"",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -422,14 +398,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/TiposUsuario/FiltrarPorNome",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/TiposUsuario/FiltrarPorNome",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"TiposUsuario",
 								"FiltrarPorNome"
 							]
@@ -462,14 +435,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/TiposUsuario/Ordenar",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/TiposUsuario/Ordenar",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"TiposUsuario",
 								"Ordenar"
 							]
@@ -487,16 +457,19 @@
 					"name": "Usuario.Listar",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "https://localhost:5001/api/Usuarios",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Usuarios",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Usuarios"
 							]
 						}
@@ -507,16 +480,19 @@
 					"name": "Usuario.BuscarPorID",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "https://localhost:5001/api/Usuarios/1",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Usuarios/1",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Usuarios",
 								"1"
 							]
@@ -546,14 +522,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Usuarios/",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Usuarios/",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Usuarios",
 								""
 							]
@@ -575,7 +548,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"usuarioId\": 5,\n    \"nome\": \"UsuarioTesteUpdate\",\n    \"email\": \"teste@teste.com\",\n    \"senha\": \"123\",\n    \"tipoUsuarioId\": 2\n}",
+							"raw": "{\n\t\"usuarioId\": 6,\n    \"nome\": \"UsuarioTesteUpdate\",\n    \"email\": \"teste@teste.com\",\n    \"senha\": \"123\",\n    \"tipoUsuarioId\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -583,96 +556,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Usuarios/5",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Usuarios/6",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Usuarios",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Usuario.FiltrarPorNome",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"Palavra\" : \"P\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:5001/api/Usuarios/FiltrarPorNome",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "5001",
-							"path": [
-								"api",
-								"Usuarios",
-								"FiltrarPorNome"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Usuario.Ordenar",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://localhost:5001/api/Usuarios/Ordenar",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "5001",
-							"path": [
-								"api",
-								"Usuarios",
-								"Ordenar"
+								"6"
 							]
 						}
 					},
@@ -700,16 +590,97 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Usuarios/5",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Usuarios/6",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Usuarios",
-								"5"
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario.FiltrarPorNome",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"Paulo\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGufos}}/Usuarios/FiltrarPorNome",
+							"host": [
+								"{{urlGufos}}"
+							],
+							"path": [
+								"Usuarios",
+								"FiltrarPorNome"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario.Ordenar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGufos}}/Usuarios/Ordenar",
+							"host": [
+								"{{urlGufos}}"
+							],
+							"path": [
+								"Usuarios",
+								"Ordenar"
 							]
 						}
 					},
@@ -727,14 +698,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/api/Eventos",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Eventos",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Eventos"
 							]
 						}
@@ -747,14 +715,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/api/Eventos/1",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Eventos/1",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Eventos",
 								"1"
 							]
@@ -784,14 +749,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Eventos/",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Eventos/",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Eventos",
 								""
 							]
@@ -813,7 +775,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"eventoId\" : 3,\n    \"titulo\": \"EventoTesteAtualizado\",\n    \"categoriaId\": 1,\n    \"acessoLivre\": false,\n    \"dataEvento\": \"2019-08-06T18:00:00\",\n    \"localizacaoId\": 1\n}",
+							"raw": "{\n\t\"eventoId\" : 4,\n    \"titulo\": \"EventoTesteAtualizado\",\n    \"categoriaId\": 1,\n    \"acessoLivre\": false,\n    \"dataEvento\": \"2019-08-06T18:00:00\",\n    \"localizacaoId\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -821,16 +783,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Eventos/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Eventos/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Eventos",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -858,16 +817,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Eventos/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Eventos/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Eventos",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -890,7 +846,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Palavra\" : \"Est\"\n}",
+							"raw": "\"Est\"",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -898,14 +854,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Eventos/FiltrarPorNome",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Eventos/FiltrarPorNome",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Eventos",
 								"FiltrarPorNome"
 							]
@@ -938,14 +891,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Eventos/Ordenar",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Eventos/Ordenar",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Eventos",
 								"Ordenar"
 							]
@@ -965,14 +915,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/api/Localizacoes",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Localizacoes",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Localizacoes"
 							]
 						}
@@ -985,14 +932,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:5001/api/Localizacoes/1",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Localizacoes/1",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Localizacoes",
 								"1"
 							]
@@ -1022,14 +966,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Localizacoes/",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Localizacoes/",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Localizacoes",
 								""
 							]
@@ -1051,7 +992,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"localizacaoId\": 3,\r\n    \"cnpj\": \"22345678912345\",\r\n    \"razaoSocial\": \"Escola SENAI de Informatica Update\",\r\n    \"endereco\": \"Al. Barão de Limeira, 539\"\r\n}",
+							"raw": "{\r\n\t\"localizacaoId\": 4,\r\n    \"cnpj\": \"22345678912399\",\r\n    \"razaoSocial\": \"Escola SENAI de Informatica Update\",\r\n    \"endereco\": \"Al. Barão de Limeira, 539\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1059,16 +1000,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Localizacoes/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Localizacoes/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Localizacoes",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -1096,16 +1034,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Localizacoes/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Localizacoes/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Localizacoes",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -1128,7 +1063,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Palavra\" : \"SENAI\"\n}",
+							"raw": "\"SENAI\"",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1136,14 +1071,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Localizacoes/FiltrarPorNome",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Localizacoes/FiltrarPorNome",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Localizacoes",
 								"FiltrarPorNome"
 							]
@@ -1176,14 +1108,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Localizacoes/Ordenar",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Localizacoes/Ordenar",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Localizacoes",
 								"Ordenar"
 							]
@@ -1201,16 +1130,19 @@
 					"name": "Presenca.Listar",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "https://localhost:5001/api/Presencas",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Presencas",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Presencas"
 							]
 						}
@@ -1221,16 +1153,19 @@
 					"name": "Presenca.BuscarPorID",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "https://localhost:5001/api/Presencas/1",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Presencas/1",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Presencas",
 								"1"
 							]
@@ -1260,14 +1195,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Presencas/",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Presencas/",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Presencas",
 								""
 							]
@@ -1289,7 +1221,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"presencaId\" : 3,\r\n\t\"eventoId\": 1,\r\n    \"usuarioId\": 4,\r\n    \"status\": \"CONFIRMADO\"\r\n}",
+							"raw": "{\r\n\t\"presencaId\" : 4,\r\n\t\"eventoId\": 1,\r\n    \"usuarioId\": 4,\r\n    \"status\": \"CONFIRMADO\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1297,16 +1229,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Presencas/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Presencas/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Presencas",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -1334,16 +1263,13 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Presencas/3",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Presencas/4",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Presencas",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -1362,11 +1288,16 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Palavra\" : \"Paulo\"\n}",
+							"raw": "\"Paulo\"",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1374,14 +1305,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Presencas/FiltrarPorNome",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Presencas/FiltrarPorNome",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Presencas",
 								"FiltrarPorNome"
 							]
@@ -1402,6 +1330,11 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1414,14 +1347,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Presencas/Ordenar",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Presencas/Ordenar",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Presencas",
 								"Ordenar"
 							]
@@ -1449,7 +1379,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"paulo@email.com\",\r\n    \"senha\": 123\r\n}",
+							"raw": "{\r\n    \"email\": \"adm@adm.com\",\r\n    \"senha\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1457,14 +1387,11 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:5001/api/Login/",
-							"protocol": "https",
+							"raw": "{{urlGufos}}/Login/",
 							"host": [
-								"localhost"
+								"{{urlGufos}}"
 							],
-							"port": "5001",
 							"path": [
-								"api",
 								"Login",
 								""
 							]
