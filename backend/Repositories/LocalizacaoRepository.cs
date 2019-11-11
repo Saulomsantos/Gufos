@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using backend.Context;
 using backend.Domains;
 using backend.Interfaces;
-using backend.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
@@ -31,10 +30,10 @@ namespace backend.Repositories
             return localizacao;
         }
 
-        public List<Localizacao> FiltrarPorNome(FiltroViewModel filtro)
+        public List<Localizacao> FiltrarPorNome(string filtro)
         {
             List<Localizacao> localizacoes = _contexto.Localizacao
-                .Where(l => l.RazaoSocial.Contains(filtro.Palavra)).ToList();
+                .Where(l => l.RazaoSocial.Contains(filtro)).ToList();
 
             return localizacoes;
         }

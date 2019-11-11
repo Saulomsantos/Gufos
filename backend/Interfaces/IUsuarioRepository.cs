@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using backend.Domains;
-using backend.ViewModels;
 
 namespace backend.Interfaces
 {
@@ -42,11 +41,11 @@ namespace backend.Interfaces
         Task<Usuario> Excluir(Usuario usuario);
 
         /// <summary>
-        /// Lista todas os usuarios que atendem ao filtro
+        /// Lista todos os usuarios que atendem ao filtro
         /// </summary>
         /// <param name="filtro">Filtro que será aplicado na busca</param>
         /// <returns>Retorna uma lista de usuarios filtrados</returns>
-        List<Usuario> FiltrarPorNome(FiltroViewModel filtro);
+        List<Usuario> FiltrarPorNome(string filtro);
 
         /// <summary>
         /// Lista todos os usuarios de forma ordenada

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using backend.Context;
 using backend.Domains;
 using backend.Interfaces;
-using backend.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
@@ -31,9 +30,9 @@ namespace backend.Repositories
             return tipoUsuario;
         }
 
-        public List<TipoUsuario> FiltrarPorNome(FiltroViewModel filtro)
+        public List<TipoUsuario> FiltrarPorNome(string filtro)
         {
-            List<TipoUsuario> tiposUsuario = _contexto.TipoUsuario.Where(t => t.Titulo.Contains(filtro.Palavra)).ToList();
+            List<TipoUsuario> tiposUsuario = _contexto.TipoUsuario.Where(t => t.Titulo.Contains(filtro)).ToList();
 
             return tiposUsuario;
         }

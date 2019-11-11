@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using backend.Domains;
-using backend.ViewModels;
 
 namespace backend.Interfaces
 {
@@ -46,7 +45,7 @@ namespace backend.Interfaces
         /// </summary>
         /// <param name="filtro">Filtro que será aplicado na busca</param>
         /// <returns>Retorna uma lista de presencas filtradas</returns>
-        List<Presenca> FiltrarPorNome(FiltroViewModel filtro);
+        List<Presenca> FiltrarPorNome(string filtro);
 
         /// <summary>
         /// Lista todos os presencas de forma ordenada

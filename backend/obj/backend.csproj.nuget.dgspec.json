@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Works\\Cursos\\senai_desenvolvimento\\2s2019\\senai_2s2019_CodeXP\\gufos\\backend\\backend.csproj": {}
+    "E:\\Works\\Cursos\\senai_desenvolvimento\\Gufos\\backend\\backend.csproj": {}
   },
   "projects": {
-    "E:\\Works\\Cursos\\senai_desenvolvimento\\2s2019\\senai_2s2019_CodeXP\\gufos\\backend\\backend.csproj": {
+    "E:\\Works\\Cursos\\senai_desenvolvimento\\Gufos\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Works\\Cursos\\senai_desenvolvimento\\2s2019\\senai_2s2019_CodeXP\\gufos\\backend\\backend.csproj",
+        "projectUniqueName": "E:\\Works\\Cursos\\senai_desenvolvimento\\Gufos\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "E:\\Works\\Cursos\\senai_desenvolvimento\\2s2019\\senai_2s2019_CodeXP\\gufos\\backend\\backend.csproj",
+        "projectPath": "E:\\Works\\Cursos\\senai_desenvolvimento\\Gufos\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\saulo\\.nuget\\packages\\",
-        "outputPath": "E:\\Works\\Cursos\\senai_desenvolvimento\\2s2019\\senai_2s2019_CodeXP\\gufos\\backend\\obj\\",
+        "outputPath": "E:\\Works\\Cursos\\senai_desenvolvimento\\Gufos\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

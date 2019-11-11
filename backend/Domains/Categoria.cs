@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-/// <summary>
-/// Classe responsável pelo modelo da categoria
-/// </summary>
 namespace backend.Domains
 {
+    /// <summary>
+    /// Classe responsável pelo modelo da categoria
+    /// </summary>
     public partial class Categoria
     {
         public Categoria()

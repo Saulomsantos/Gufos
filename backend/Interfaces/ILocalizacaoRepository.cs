@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using backend.Domains;
-using backend.ViewModels;
 
 namespace backend.Interfaces
 {
@@ -46,7 +45,7 @@ namespace backend.Interfaces
         /// </summary>
         /// <param name="filtro">Filtro que será aplicado na busca</param>
         /// <returns>Retorna uma lista de localizacoes filtradas</returns>
-        List<Localizacao> FiltrarPorNome(FiltroViewModel filtro);
+        List<Localizacao> FiltrarPorNome(string filtro);
 
         /// <summary>
         /// Lista todos as localizacoes de forma ordenada

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using backend.Context;
 using backend.Domains;
 using backend.Interfaces;
-using backend.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
@@ -33,10 +32,10 @@ namespace backend.Repositories
             return evento;
         }
 
-        public List<Evento> FiltrarPorNome(FiltroViewModel filtro)
+        public List<Evento> FiltrarPorNome(string filtro)
         {
             List<Evento> eventos = _contexto.Evento
-                .Include("Categoria").Where(e => e.Titulo.Contains(filtro.Palavra)).ToList();
+                .Include("Categoria").Where(e => e.Titulo.Contains(filtro)).ToList();
 
             return eventos;
         }

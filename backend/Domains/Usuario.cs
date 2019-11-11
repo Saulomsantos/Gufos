@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,11 +17,14 @@ namespace backend.Domains
         [Required]
         [StringLength(255)]
         public string Nome { get; set; }
-        [Required]
-        [StringLength(255)]
+
+        [Required(ErrorMessage = "Informe o e-mail")]
+        [StringLength(255)]        
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required]
-        [StringLength(255)]
+
+        [Required(ErrorMessage = "Informe a senha")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "A senha deve conter no mínimo 3 caracteres")]
         public string Senha { get; set; }
         [Column("Tipo_usuario_id")]
         public int? TipoUsuarioId { get; set; }

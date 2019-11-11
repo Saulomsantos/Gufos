@@ -1,5 +1,5 @@
 {
-  "FilePath": "e:\\Works\\Cursos\\senai_desenvolvimento\\2s2019\\senai_2s2019_CodeXP\\gufos\\backend\\backend.csproj",
+  "FilePath": "e:\\Works\\Cursos\\senai_desenvolvimento\\Gufos\\backend\\backend.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14339,7 +14339,7 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 2147483646
+    "CSharpLanguageVersion": 800
   },
   "RootNamespace": "backend",
   "Documents": [],

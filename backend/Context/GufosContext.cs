@@ -18,7 +18,6 @@ namespace backend.Context
 
         public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Evento> Evento { get; set; }
-        public virtual DbSet<Eventosview> Eventosview { get; set; }
         public virtual DbSet<Localizacao> Localizacao { get; set; }
         public virtual DbSet<Presenca> Presenca { get; set; }
         public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
@@ -30,7 +29,7 @@ namespace backend.Context
             {
 // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=DESKTOP-NJ6LHN1\\SQLDEVELOPER; Database=Gufos; Integrated Security=true;");
-                // optionsBuilder.UseSqlServer("Server=SQLDEVELOPER; Database=Gufos; User Id=sa; pwd=132");
+                // optionsBuilder.UseSqlServer("Server=LAB08DESK4001; Database=Gufos; User Id=sa; pwd=132");
             }
         }
 
@@ -61,18 +60,7 @@ namespace backend.Context
                     .HasForeignKey(d => d.LocalizacaoId)
                     .HasConstraintName("FK__Evento__Localiza__47DBAE45");
             });
-
-            modelBuilder.Entity<Eventosview>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("EVENTOSVIEW");
-
-                entity.Property(e => e.Categoria).IsUnicode(false);
-
-                entity.Property(e => e.Titulo).IsUnicode(false);
-            });
-
+            
             modelBuilder.Entity<Localizacao>(entity =>
             {
                 entity.HasIndex(e => e.Cnpj)

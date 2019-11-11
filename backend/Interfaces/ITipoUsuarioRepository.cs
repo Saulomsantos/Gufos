@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using backend.Domains;
-using backend.ViewModels;
 
 namespace backend.Interfaces
 {
@@ -23,21 +22,21 @@ namespace backend.Interfaces
         /// <summary>
         /// Cadastra um novo tipo de usuário
         /// </summary>
-        /// <param name="tipoUsuário">Objeto tipo usuário com os dados que serão cadastrados</param>
+        /// <param name="tipoUsuario">Objeto tipo usuário com os dados que serão cadastrados</param>
         /// <returns>Retorna um tipo usuário cadastrado</returns>
         Task<TipoUsuario> Salvar(TipoUsuario tipoUsuario);
         
         /// <summary>
         /// Altera um tipo usuário existente
         /// </summary>
-        /// <param name="tipoUsuário">Objeto tipo usuário com os dados que serão atualizados</param>
+        /// <param name="tipoUsuario">Objeto tipo usuário com os dados que serão atualizados</param>
         /// <returns>Retorna um tipo usuário atualizado</returns>
         Task<TipoUsuario> Alterar(TipoUsuario tipoUsuario);
 
         /// <summary>
         /// Deleta uma tipo usuário existente
         /// </summary>
-        /// <param name="tipoUsuário">Objeto tipo usuário com os dados que serão deletados</param>
+        /// <param name="tipoUsuario">Objeto tipo usuário com os dados que serão deletados</param>
         /// <returns>Retorna um tipo usuário deletado</returns>
         Task<TipoUsuario> Excluir(TipoUsuario tipoUsuario);
 
@@ -46,7 +45,7 @@ namespace backend.Interfaces
         /// </summary>
         /// <param name="filtro">Filtro que será aplicado na busca</param>
         /// <returns>Retorna uma lista de tipo usuário filtrados</returns>
-        List<TipoUsuario> FiltrarPorNome(FiltroViewModel filtro);
+        List<TipoUsuario> FiltrarPorNome(string filtro);
 
         /// <summary>
         /// Lista todos os tipos de usuário de forma ordenada

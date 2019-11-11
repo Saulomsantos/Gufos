@@ -4,15 +4,12 @@ using System.Threading.Tasks;
 using backend.Context;
 using backend.Domains;
 using backend.Interfaces;
-using backend.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
-/// <summary>
-/// Classe responsável pela implementação dos métodos da categoria
-/// </summary>
 namespace backend.Repositories
 {
     /// <summary>
+    /// Classe responsável pela implementação dos métodos da categoria
     /// Herda os métodos definidos na Interface
     /// </summary>
     public class CategoriaRepository : ICategoriaRepository
@@ -40,13 +37,13 @@ namespace backend.Repositories
             return categoria;
         }
 
-        public List<Categoria> FiltrarPorNome(FiltroViewModel filtro)
+        public List<Categoria> FiltrarPorNome(string filtro)
         {
             // Lista categorias que comecem com o filtro inserido
-            // List<Categoria> categorias = _contexto.Categoria.Where(c => c.Titulo.StartsWith(filtro.Palavra)).ToList();
+            // List<Categoria> categorias = _contexto.Categoria.Where(c => c.Titulo.StartsWith(filtro)).ToList();
 
             // Lista categorias que contenham o filtro inserido em qualquer lugar do Titulo
-            List<Categoria> categorias = _contexto.Categoria.Where(c => c.Titulo.Contains(filtro.Palavra)).ToList();
+            List<Categoria> categorias = _contexto.Categoria.Where(c => c.Titulo.Contains(filtro)).ToList();
 
             return categorias;
         }

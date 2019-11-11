@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using backend.Context;
 using backend.Domains;
 using backend.Interfaces;
-using backend.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
@@ -22,8 +21,29 @@ namespace backend.Repositories
         public Presenca BuscarPorID(int id)
         {
             Presenca presencaBuscada = _contexto.Presenca
-                .Include("Evento")
-                .Include("Usuario")
+                .Select(p => new Presenca()
+                {
+                    PresencaId = p.PresencaId,
+                    Status = p.Status,
+
+                    Usuario = new Usuario()
+                    {
+                        UsuarioId = p.Usuario.UsuarioId,
+                        Nome = p.Usuario.Nome,
+                        Email = p.Usuario.Email,
+                        TipoUsuario = p.Usuario.TipoUsuario,
+                    },
+
+                    Evento = new Evento()
+                    {
+                        EventoId = p.Evento.EventoId,
+                        Titulo = p.Evento.Titulo,
+                        Categoria = p.Evento.Categoria,
+                        DataEvento = p.Evento.DataEvento,
+                        Localizacao = p.Evento.Localizacao,
+                        AcessoLivre = p.Evento.AcessoLivre,
+                    }
+                })
                 .ToList().Find(p => p.PresencaId == id) ;
             return presencaBuscada;
         }
@@ -35,29 +55,97 @@ namespace backend.Repositories
             return presenca;
         }
 
-        public List<Presenca> FiltrarPorNome(FiltroViewModel filtro)
+        public List<Presenca> FiltrarPorNome(string filtro)
         {
             List<Presenca> presencas = _contexto.Presenca
-                .Include("Evento")
-                .Include("Usuario")
-                .Where(p => p.Usuario.Nome.Contains(filtro.Palavra)).ToList();
+                .Select(p => new Presenca()
+                {
+                    PresencaId = p.PresencaId,
+                    Status = p.Status,
+
+                    Usuario = new Usuario()
+                    {
+                        UsuarioId = p.Usuario.UsuarioId,
+                        Nome = p.Usuario.Nome,
+                        Email = p.Usuario.Email,
+                        TipoUsuario = p.Usuario.TipoUsuario,
+                    },
+
+                    Evento = new Evento()
+                    {
+                        EventoId = p.Evento.EventoId,
+                        Titulo = p.Evento.Titulo,
+                        Categoria = p.Evento.Categoria,
+                        DataEvento = p.Evento.DataEvento,
+                        Localizacao = p.Evento.Localizacao,
+                        AcessoLivre = p.Evento.AcessoLivre,
+                    }
+                })
+                .Where(p => p.Usuario.Nome.Contains(filtro)).ToList();
 
             return presencas;
         }
 
         public async Task<List<Presenca>> Listar()
         {
+            //return _contexto.Presenca
+            //    .Include(p => p.Evento)
+            //    .Include(p => p.Usuario)
+            //    .ToListAsync();
+
             return await _contexto.Presenca
-                .Include("Evento")
-                .Include("Usuario")
+                .Select(p => new Presenca()
+                {
+                    PresencaId = p.PresencaId,
+                    Status = p.Status,
+                    
+                    Usuario = new Usuario()
+                    {
+                        UsuarioId = p.Usuario.UsuarioId,
+                        Nome = p.Usuario.Nome,
+                        Email = p.Usuario.Email,
+                        TipoUsuario = p.Usuario.TipoUsuario,
+                    },
+
+                    Evento = new Evento()
+                    {
+                        EventoId = p.Evento.EventoId,
+                        Titulo = p.Evento.Titulo,
+                        Categoria = p.Evento.Categoria,
+                        DataEvento = p.Evento.DataEvento,
+                        Localizacao = p.Evento.Localizacao,
+                        AcessoLivre = p.Evento.AcessoLivre,
+                    }
+                })
                 .ToListAsync();
         }
 
         public List<Presenca> Ordenar()
         {
             List <Presenca> presenca = _contexto.Presenca
-                .Include("Evento")
-                .Include("Usuario")
+                .Select(p => new Presenca()
+                {
+                    PresencaId = p.PresencaId,
+                    Status = p.Status,
+
+                    Usuario = new Usuario()
+                    {
+                        UsuarioId = p.Usuario.UsuarioId,
+                        Nome = p.Usuario.Nome,
+                        Email = p.Usuario.Email,
+                        TipoUsuario = p.Usuario.TipoUsuario,
+                    },
+
+                    Evento = new Evento()
+                    {
+                        EventoId = p.Evento.EventoId,
+                        Titulo = p.Evento.Titulo,
+                        Categoria = p.Evento.Categoria,
+                        DataEvento = p.Evento.DataEvento,
+                        Localizacao = p.Evento.Localizacao,
+                        AcessoLivre = p.Evento.AcessoLivre,
+                    }
+                })
                 .OrderByDescending(p => p.Status).ToList();
 
             return presenca;

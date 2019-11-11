@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using backend.Domains;
-using backend.ViewModels;
 
 namespace backend.Interfaces
 {
@@ -46,7 +45,7 @@ namespace backend.Interfaces
         /// </summary>
         /// <param name="filtro">Filtro que será aplicado na busca</param>
         /// <returns>Retorna uma lista de eventos filtrados</returns>
-        List<Evento> FiltrarPorNome(FiltroViewModel filtro);
+        List<Evento> FiltrarPorNome(string filtro);
 
         /// <summary>
         /// Lista todos os eventos de forma ordenada

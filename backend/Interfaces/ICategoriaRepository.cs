@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using backend.Domains;
-using backend.ViewModels;
 
-/// <summary>
-/// Classe responsável por definir os métodos da categoria
-/// </summary>
 namespace backend.Interfaces
 {
+    /// <summary>
+    /// Classe responsável por definir os métodos da Categoria
+    /// </summary>
     public interface ICategoriaRepository
     {
         /// <summary>
@@ -49,7 +48,7 @@ namespace backend.Interfaces
         /// </summary>
         /// <param name="filtro">Filtro que será aplicado na busca</param>
         /// <returns>Retorna uma lista de categorias filtradas</returns>
-        List<Categoria> FiltrarPorNome(FiltroViewModel filtro);
+        List<Categoria> FiltrarPorNome(string filtro);
 
         /// <summary>
         /// Lista todas as categorias de forma ordenada

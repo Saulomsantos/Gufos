@@ -2,19 +2,26 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using backend.Domains;
 using backend.Repositories;
-using backend.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace backend.Controllers
+namespace senai_2s2019_CodeXP_Gufos.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TiposUsuarioController : ControllerBase
     {
         TipoUsuarioRepository _repositorio = new TipoUsuarioRepository();
 
+        /// <summary>
+        /// Lista todos os tipos de usuário
+        /// </summary>
+        /// <returns>Retorna uma lista de com os tipos de usuário</returns>
         [HttpGet]
-        public async Task<ActionResult<List<TipoUsuario>>> Get(){
+        public async Task<ActionResult<List<TipoUsuario>>> Get()
+        {
             List<TipoUsuario> tiposUsuario = await _repositorio.Listar();
 
             if (tiposUsuario == null)
@@ -25,8 +32,14 @@ namespace backend.Controllers
             return tiposUsuario;
         }
 
+        /// <summary>
+        /// Busca um tipo de usuário através do seu ID
+        /// </summary>
+        /// <param name="id">Identificador único do tipo de usuário que será buscado</param>
+        /// <returns>Retorna um tipo de usuário buscado</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<TipoUsuario>> Get(int id){
+        public async Task<ActionResult<TipoUsuario>> Get(int id)
+        {
             TipoUsuario tipoUsuario = await _repositorio.BuscarPorID(id);
 
             if (tipoUsuario == null)
@@ -37,8 +50,14 @@ namespace backend.Controllers
             return tipoUsuario;
         }
 
+        /// <summary>
+        /// Cadastra um novo tipo de usuário
+        /// </summary>
+        /// <param name="tipoUsuario">Objeto tipoUsuario que será cadastrado</param>
+        /// <returns>Retorna os dados do tipo usuário que foi cadastrado</returns>
         [HttpPost]
-        public async Task<ActionResult<TipoUsuario>> Post(TipoUsuario tipoUsuario){
+        public async Task<ActionResult<TipoUsuario>> Post(TipoUsuario tipoUsuario)
+        {
             try
             {
                 await _repositorio.Salvar(tipoUsuario);
@@ -51,8 +70,15 @@ namespace backend.Controllers
             return tipoUsuario;
         }
 
+        /// <summary>
+        /// Atualiza um tipo de usuário existente
+        /// </summary>
+        /// <param name="id">Identificador único do tipo de usuário que será cadastrado</param>
+        /// <param name="tipoUsuario">Objeto tipoUsuario com os dados que serão atualizado</param>
+        /// <returns>Retorna um status code 204 - No Content</returns>
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, TipoUsuario tipoUsuario){
+        public async Task<ActionResult> Put(int id, TipoUsuario tipoUsuario)
+        {
             // Se o ID do objeto não existir, retorna erro 400 - BadRequest
             if (id != tipoUsuario.TipoUsuarioId)
             {
@@ -82,13 +108,19 @@ namespace backend.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deleta um tipo de usuário através do seu ID
+        /// </summary>
+        /// <param name="id">Identificador único do tipo de usuário que será deletado</param>
+        /// <returns>Retorna os dados do tipo de usuário deletado</returns>
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TipoUsuario>> Delete(int id){
+        public async Task<ActionResult<TipoUsuario>> Delete(int id)
+        {
             TipoUsuario tipoUsuario_buscado = await _repositorio.BuscarPorID(id);
 
             if (tipoUsuario_buscado == null)
             {
-                return NotFound(new {mensagem = "Nenhum tipo usuário encontrado para o ID informado"});
+                return NotFound(new { mensagem = "Nenhum tipo usuário encontrado para o ID informado" });
             }
 
             await _repositorio.Excluir(tipoUsuario_buscado);
@@ -96,16 +128,27 @@ namespace backend.Controllers
             return tipoUsuario_buscado;
         }
 
+        /// <summary>
+        /// Filtra os tipos de usuário pelo nome
+        /// </summary>
+        /// <param name="filtro">Filtro que será aplicado na busca</param>
+        /// <returns>Retorna uma lista de tipos de usuário filtrada</returns>
         [HttpGet("FiltrarPorNome")]
-        public ActionResult<List<TipoUsuario>> GetFiltrar(FiltroViewModel filtro){
+        public ActionResult<List<TipoUsuario>> GetFiltrar([FromBody]string filtro)
+        {
 
             List<TipoUsuario> tiposUsuario_filtrados = _repositorio.FiltrarPorNome(filtro);
 
             return tiposUsuario_filtrados;
         }
 
+        /// <summary>
+        /// Ordena uma lista de tipos de usuário
+        /// </summary>
+        /// <returns>Retorna uma lista de tipos de usuário ordenada</returns>
         [HttpGet("Ordenar")]
-        public ActionResult<List<TipoUsuario>> GetOrdenar(){
+        public ActionResult<List<TipoUsuario>> GetOrdenar()
+        {
 
             List<TipoUsuario> tiposUsuario_ordenados = _repositorio.Ordenar();
 

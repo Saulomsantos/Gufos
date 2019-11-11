@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace backend.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class LoginController : ControllerBase
@@ -68,16 +69,19 @@ namespace backend.Controllers
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Login([FromBody]LoginViewModel login){
-            IActionResult response = Unauthorized();
+            
+            // IActionResult response = Unauthorized();
+
             var user = ValidaUsuario(login);
 
-            if (user != null)
+            if (user == null)
             {
-                var tokenString = GerarToken(user);
-                response = Ok(new {token = tokenString});
+                return NotFound(new { mensagem = "Usuário ou senha inválidos!" });
             }
 
-            return response;
+            var tokenString = GerarToken(user);
+
+            return Ok(new { token = tokenString });
         }
     }
 }

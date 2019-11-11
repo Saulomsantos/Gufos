@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using backend.Context;
 using backend.Domains;
 using backend.Interfaces;
-using backend.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
@@ -22,7 +21,21 @@ namespace backend.Repositories
         public Usuario BuscarPorID(int id)
         {
             Usuario usuarioBuscado = _contexto.Usuario
-                .Include("TipoUsuario").ToList().Find(u => u.UsuarioId == id) ;
+                .Select(u => new Usuario()
+                {
+                    UsuarioId = u.UsuarioId,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    TipoUsuarioId = u.TipoUsuarioId,
+
+                    TipoUsuario = new TipoUsuario()
+                    {
+                        TipoUsuarioId = u.TipoUsuario.TipoUsuarioId,
+                        Titulo = u.TipoUsuario.Titulo,
+                    }
+                })
+                .ToList()
+                .Find(u => u.UsuarioId == id) ;
             return usuarioBuscado;
         }
 
@@ -33,10 +46,23 @@ namespace backend.Repositories
             return usuario;
         }
 
-        public List<Usuario> FiltrarPorNome(FiltroViewModel filtro)
+        public List<Usuario> FiltrarPorNome(string filtro)
         {
             List<Usuario> usuarios = _contexto.Usuario
-                .Include("TipoUsuario").Where(u => u.Nome.Contains(filtro.Palavra)).ToList();
+                .Select(u => new Usuario()
+                {
+                    UsuarioId = u.UsuarioId,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    TipoUsuarioId = u.TipoUsuarioId,
+
+                    TipoUsuario = new TipoUsuario()
+                    {
+                        TipoUsuarioId = u.TipoUsuario.TipoUsuarioId,
+                        Titulo = u.TipoUsuario.Titulo,
+                    }
+                })
+                .Where(u => u.Nome.Contains(filtro)).ToList();
 
             return usuarios;
         }
@@ -44,13 +70,40 @@ namespace backend.Repositories
         public async Task<List<Usuario>> Listar()
         {
             return await _contexto.Usuario
-                .Include("TipoUsuario").ToListAsync();
+                //.Include("TipoUsuario")
+                .Select(u => new Usuario()
+                {
+                    UsuarioId = u.UsuarioId,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    TipoUsuarioId = u.TipoUsuarioId,
+                    
+                    TipoUsuario = new TipoUsuario()
+                    {
+                        TipoUsuarioId = u.TipoUsuario.TipoUsuarioId,
+                        Titulo = u.TipoUsuario.Titulo,
+                    }
+                })
+                .ToListAsync();
         }
 
         public List<Usuario> Ordenar()
         {
             List <Usuario> usuarios = _contexto.Usuario
-                .Include("TipoUsuario").OrderByDescending(u => u.Nome).ToList();
+                .Select(u => new Usuario()
+                {
+                    UsuarioId = u.UsuarioId,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    TipoUsuarioId = u.TipoUsuarioId,
+
+                    TipoUsuario = new TipoUsuario()
+                    {
+                        TipoUsuarioId = u.TipoUsuario.TipoUsuarioId,
+                        Titulo = u.TipoUsuario.Titulo,
+                    }
+                })
+                .OrderByDescending(u => u.Nome).ToList();
 
             return usuarios;
         }
@@ -58,7 +111,20 @@ namespace backend.Repositories
         public Usuario RealizarLogin(string email, string senha)
         {
             Usuario usuarioLogado = _contexto.Usuario
-                .Include("TipoUsuario")
+                .Select(u => new Usuario()
+                {
+                    UsuarioId = u.UsuarioId,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    Senha = u.Senha,
+                    TipoUsuarioId = u.TipoUsuarioId,
+
+                    TipoUsuario = new TipoUsuario()
+                    {
+                        TipoUsuarioId = u.TipoUsuario.TipoUsuarioId,
+                        Titulo = u.TipoUsuario.Titulo,
+                    }
+                })
                 .ToList()
                 .Find(u => u.Email == email && u.Senha == senha);
             
