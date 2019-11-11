@@ -108,3 +108,5 @@ E:\Works\Cursos\senai_desenvolvimento\Gufos\backend\obj\Debug\netcoreapp3.0\back
 E:\Works\Cursos\senai_desenvolvimento\Gufos\backend\obj\Debug\netcoreapp3.0\backend.csproj.CopyComplete
 E:\Works\Cursos\senai_desenvolvimento\Gufos\backend\obj\Debug\netcoreapp3.0\backend.dll
 E:\Works\Cursos\senai_desenvolvimento\Gufos\backend\obj\Debug\netcoreapp3.0\backend.pdb
+E:\Works\Cursos\senai_desenvolvimento\Gufos\backend\bin\Debug\netcoreapp3.0\backend.xml
+E:\Works\Cursos\senai_desenvolvimento\Gufos\backend\obj\Debug\netcoreapp3.0\backend.xml

@@ -66,6 +66,11 @@ namespace backend.Controllers
         }
 
         // Usa a anotação abaixo para ignorar a autenticação neste método
+        /// <summary>
+        /// Realiza login no sistema
+        /// </summary>
+        /// <param name="login">Email e Senha para realizar login</param>
+        /// <returns>Retorna um token com os dados do usuário logado</returns>
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Login([FromBody]LoginViewModel login){
