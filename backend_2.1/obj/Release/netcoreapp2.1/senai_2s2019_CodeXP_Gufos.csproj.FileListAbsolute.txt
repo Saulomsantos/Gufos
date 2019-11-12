@@ -1,0 +1,14 @@
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\bin\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.deps.json
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\bin\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.runtimeconfig.json
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\bin\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.runtimeconfig.dev.json
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\bin\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.dll
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\bin\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.pdb
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.csprojAssemblyReference.cache
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.csproj.CoreCompileInputs.cache
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.RazorAssemblyInfo.cache
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.RazorAssemblyInfo.cs
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.AssemblyInfoInputs.cache
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.AssemblyInfo.cs
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.RazorTargetAssemblyInfo.cache
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.dll
+C:\Users\39893838843\Downloads\senai_2s2019_CodeXP_Gufos\senai_2s2019_CodeXP_Gufos\obj\Release\netcoreapp2.1\senai_2s2019_CodeXP_Gufos.pdb
