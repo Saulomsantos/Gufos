@@ -7,6 +7,10 @@ class Categoria extends Component {
             listaCategorias : [],
             titulo : ''
         }
+
+        this.atualizaEstadoTitulo = this.atualizaEstadoTitulo.bind(this);
+        this.cadastraCategoria = this.cadastraCategoria.bind(this);
+        this.buscarCategorias = this.buscarCategorias.bind(this);
     }
 
     // Faz a chamada para a api e atualiza o state listaCategorias com os dados obtidos
@@ -21,6 +25,31 @@ class Categoria extends Component {
     // Chamada a função buscarCategorias() assim que a tela é renderizada
     componentDidMount(){
         this.buscarCategorias();
+    }
+
+    // Atualiza o state titulo com o valor do input
+    atualizaEstadoTitulo(event){
+        this.setState({ titulo : event.target.value })
+    }
+
+    cadastraCategoria(event){
+        event.preventDefault();
+
+        fetch('http://localhost:5000/api/categorias',
+        {
+            method : 'POST',
+            body : JSON.stringify({ titulo : this.state.titulo }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        })
+        .then(resposta => {
+            if (resposta.status === 200) {
+                console.log('Categoria cadastrada!');
+            }
+        })
+        .catch(erro => console.log(erro))
+        .then(this.buscarCategorias);
     }
     
 
@@ -59,12 +88,12 @@ class Categoria extends Component {
                     <section>
                         {/* Cadastro de Categorias */}
                         <h2>Cadastro de Categorias</h2>
-                        <form onSubmit>
+                        <form onSubmit={this.cadastraCategoria}>
                             <div>
                                 <input
                                     type="text"
-                                    // value=
-                                    // onChange=
+                                    value={this.state.titulo}
+                                    onChange={this.atualizaEstadoTitulo}
                                     placeholder="Título da categoria"
                                 />
                                 <button type="submit">
