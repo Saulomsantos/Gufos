@@ -22,7 +22,7 @@ class Categoria extends Component {
         .catch(erro => console.log(erro))
     }
 
-    // Chamada a função buscarCategorias() assim que a tela é renderizada
+    // Chama a função buscarCategorias() assim que a tela é renderizada
     componentDidMount(){
         this.buscarCategorias();
     }
