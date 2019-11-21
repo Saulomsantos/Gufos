@@ -28,8 +28,8 @@ namespace backend.Context
             if (!optionsBuilder.IsConfigured)
             {
 // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-NJ6LHN1\\SQLDEVELOPER; Database=Gufos; Integrated Security=true;");
-                // optionsBuilder.UseSqlServer("Server=LAB08DESK4001; Database=Gufos; User Id=sa; pwd=132");
+                // optionsBuilder.UseSqlServer("Server=DESKTOP-NJ6LHN1\\SQLDEVELOPER; Database=Gufos; Integrated Security=true;");
+                optionsBuilder.UseSqlServer("Server=LAB08DESK4001; Database=Gufos; User Id=sa; pwd=132");
             }
         }
 

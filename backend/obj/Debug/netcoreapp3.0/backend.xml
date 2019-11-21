@@ -4,6 +4,13 @@
         <name>backend</name>
     </assembly>
     <members>
+        <member name="M:backend.Controllers.LoginController.Login(backend.ViewModels.LoginViewModel)">
+            <summary>
+            Realiza login no sistema
+            </summary>
+            <param name="login">Email e Senha para realizar login</param>
+            <returns>Retorna um token com os dados do usuário logado</returns>
+        </member>
         <member name="T:backend.Domains.Categoria">
             <summary>
             Classe responsável pelo modelo da categoria
