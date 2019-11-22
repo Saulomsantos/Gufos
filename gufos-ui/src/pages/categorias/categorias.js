@@ -14,7 +14,7 @@ class Categoria extends Component {
         this.buscarCategorias = this.buscarCategorias.bind(this);
     }
 
-    // Faz a chamada para a api usando fetch
+    // Faz a chamada para a API usando fetch
     // e atualiza o state listaCategorias com os dados obtidos
     // Caso ocorra algum erro, mostra no console do navegador
     buscarCategorias(){
@@ -40,7 +40,7 @@ class Categoria extends Component {
         // Ignora o comportamento padrão do navegador
         event.preventDefault();
 
-        // Faz a chamada para a api usando fetch
+        // Faz a chamada para a API usando fetch
         fetch('https://localhost:5001/api/categorias',
         {
             // Define o método da requisição ( POST )
