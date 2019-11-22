@@ -36,7 +36,7 @@ class Evento extends Component {
         Axios.get('http://localhost:5000/api/eventos')
         .then(resposta => {
             if (resposta.status === 200) {
-                this.setState({ listaCategorias : resposta.data })
+                this.setState({ listaEventos : resposta.data })
                 console.log(this.state.listaEventos)
             }
         })
