@@ -17,7 +17,7 @@ class Login extends Component {
         event.preventDefault();
 
         // Define a URL e o corpo da requisição
-        Axios.post('http://localhost:5000/api/login',{
+        Axios.post('https://localhost:5001/api/login',{
             email : this.state.email,
             senha : this.state.senha
         })
