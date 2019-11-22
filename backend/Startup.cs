@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 
@@ -46,109 +46,101 @@ using Newtonsoft.Json;
 // Adicionar a variável de ambiente MSBuildSDKsPath
 // Adicionar o caminho da variável como C:\Program Files\dotnet\sdk\3.0.100\Sdks
 
-namespace backend
-{
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
+namespace backend {
+    public class Startup {
+        public Startup (IConfiguration configuration) {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices (IServiceCollection services) {
             // Configura para que o looping no relacionamento de entidades seja ignorado
-            services.AddControllersWithViews().AddNewtonsoftJson(
+            services.AddControllersWithViews ().AddNewtonsoftJson (
                 opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
             );
 
             // Configura o CORS
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
+            services.AddCors (options => {
+                options.AddPolicy ("CorsPolicy",
+                    builder => {
+                        builder
+                            .AllowAnyOrigin ()
+                            .AllowAnyMethod ()
+                            .AllowAnyHeader ();
+                    });
             });
 
-            // Configuramos o Swagger
-            services.AddSwaggerGen(c => {
-                c.SwaggerDoc("v1", new OpenApiInfo{ Title = "API", Version = "v1"});
+            // Configura o Swagger
+            services.AddSwaggerGen (c => {
+                c.SwaggerDoc ("v1", new OpenApiInfo { Title = "API", Version = "v1" });
 
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                var xmlPath = Path.Combine (AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments (xmlPath);
             });
 
             // Implementa autenticação
-            services.AddAuthentication(options =>
-            {
+            services.AddAuthentication (options => {
                 options.DefaultAuthenticateScheme = "JwtBearer";
                 options.DefaultChallengeScheme = "JwtBearer";
-            }).AddJwtBearer("JwtBearer", options =>
-            {
+            }).AddJwtBearer ("JwtBearer", options => {
                 // Define as opções 
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    // Quem esta solicitando
-                    ValidateIssuer = true,
+                options.TokenValidationParameters = new TokenValidationParameters {
+                // Quem esta solicitando
+                ValidateIssuer = true,
 
-                    // Quem esta validadando
-                    ValidateAudience = true,
+                // Quem esta validadando
+                ValidateAudience = true,
 
-                    // Definindo o tempo de expiração
-                    ValidateLifetime = true,
+                // Definindo o tempo de expiração
+                ValidateLifetime = true,
 
-                    // Forma de criptografia
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("ThisIsMyGufosSecretKey")),
+                // Forma de criptografia
+                IssuerSigningKey = new SymmetricSecurityKey (System.Text.Encoding.UTF8.GetBytes ("ThisIsMyGufosSecretKey")),
 
-                    // Tempo de expiração do Token
-                    ClockSkew = TimeSpan.FromMinutes(30),
+                // Tempo de expiração do Token
+                ClockSkew = TimeSpan.FromMinutes (30),
 
-                    // Nome da Issuer, de onde esta vindo
-                    ValidIssuer = "gufos.com",
+                // Nome da Issuer, de onde esta vindo
+                ValidIssuer = "gufos.com",
 
-                    // Nome da Audience, de onde esta vindo
-                    ValidAudience = "gufos.com"
+                // Nome da Audience, de onde esta vindo
+                ValidAudience = "gufos.com"
                 };
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
+        public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
+            if (env.IsDevelopment ()) {
+                app.UseDeveloperExceptionPage ();
             }
 
             // Declara o uso do Swagger
-            app.UseSwagger();
+            app.UseSwagger ();
 
             // Especifica o Endpoint do Swagger na aplicação
-            app.UseSwaggerUI(c => {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json","API V1");
+            app.UseSwaggerUI (c => {
+                c.SwaggerEndpoint ("/swagger/v1/swagger.json", "API V1");
             });
 
             // Declara o uso da autenticação
-            app.UseAuthentication();
+            app.UseAuthentication ();
+
+            app.UseHttpsRedirection ();
+
+            app.UseRouting ();
 
             // Habilita o Cors
-            app.UseCors("CorsPolicy");
+            app.UseCors ("CorsPolicy");
 
-            app.UseHttpsRedirection();
+            app.UseAuthorization ();
 
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
+            app.UseEndpoints (endpoints => {
+                endpoints.MapControllers ();
             });
         }
     }
