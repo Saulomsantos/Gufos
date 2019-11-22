@@ -42,6 +42,9 @@ using Newtonsoft.Json;
 // Adicionamos o pacote Newtonsoft para tratamento de json
 // dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson --version 3.0.0
 
+// Adiciona o pacote para configuração do CORs
+// dotnet add package Microsoft.AspNetCore.Cors
+
 // Possível solução problemas com Omnisharp
 // Adicionar a variável de ambiente MSBuildSDKsPath
 // Adicionar o caminho da variável como C:\Program Files\dotnet\sdk\3.0.100\Sdks
