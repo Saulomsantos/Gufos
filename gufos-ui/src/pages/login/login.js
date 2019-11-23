@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { parseJwt } from '../../services/auth';
 
 class Login extends Component {
     constructor(props){
@@ -39,6 +40,18 @@ class Login extends Component {
                 console.log('Meu token é: ' + data.data.token);
                 // e define que a requisição terminou
                 this.setState({ isLoading : false });
+
+                // Define a variável base64 que vai receber o payload do token
+                var base64 = localStorage.getItem('usuario-gufos').split('.')[1];
+                // Exibe no console o valor presente na variável base64
+                console.log(base64);
+                // Exibe no console o valor convertido da base64 para string
+                console.log(window.atob(base64));
+                // Exibe no console o valor convertido da string para JSON
+                console.log(JSON.parse(window.atob(base64)));
+                
+                // Exibe no console apenas o tipo de usuário logado
+                console.log(parseJwt().Role);
             };
         })
 
