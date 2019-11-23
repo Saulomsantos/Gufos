@@ -7,14 +7,21 @@ class Login extends Component {
         this.state = {
             email : '',
             senha : '',
-            erroMensagem : ''
-        }
-    }
+            erroMensagem : '',
+            isLoading : false
+        };
+    };
 
     // Função que faz a chamada para a API para realizar o login
     efetuaLogin(event){
         // Ignora o comportamento padrão do navegador
         event.preventDefault();
+
+        // Remove a frase de erro do state erroMensagem
+        this.setState({ erroMensagem : '' });
+
+        // Define que a requisição está em andamento
+        this.setState({ isLoading : true });
 
         // Define a URL e o corpo da requisição
         Axios.post('https://localhost:5001/api/login',{
@@ -23,27 +30,32 @@ class Login extends Component {
         })
 
         // Verifica o retorno da requisição
-        // Caso seja status code 200, salva o token no localStorage
-        // e exibe o token no console do navegador
         .then(data => {
+            // Caso seja status code 200,
             if (data.status === 200) {
+                // salva o token no localStorage,
                 localStorage.setItem('usuario-gufos', data.data.token);
+                // exibe o token no console do navegador
                 console.log('Meu token é: ' + data.data.token);
-            }
+                // e define que a requisição terminou
+                this.setState({ isLoading : false });
+            };
         })
 
-        // Caso haja um erro, define o state erroMensagem como 'E-mail ou senha inválidos!'
+        // Caso haja um erro,
         .catch(erro => {
-            this.setState({ erroMensagem : 'E-mail ou senha inválidos!' })
-        })
-    }
+            // define o state erroMensagem como 'E-mail ou senha inválidos!'
+            this.setState({ erroMensagem : 'E-mail ou senha inválidos!' });
+            // e define que a requisição terminou
+            this.setState({ isLoading : false });
+        });
+    };
 
     // Função genérica que atualiza o state de acordo com o input
     // Pode ser reutilizada em vários inputs diferentes
     atualizaStateCampo(event){
-        this.setState({ [event.target.name] : event.target.value })
-    }
-
+        this.setState({ [event.target.name] : event.target.value });
+    };
 
     render(){
         return(
@@ -74,15 +86,30 @@ class Login extends Component {
                                 // o usuário altera o valor do input
                                 onChange={this.atualizaStateCampo.bind(this)}
                                 placeholder="password"/>
-                            <button type="submit">
-                                Login
-                            </button>
+
+                            {/* Exibe a mensagem de erro ao tentar logar com credenciais inválidas */}
+                            <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
+
+                            {/* 
+                                Verifica se a requisição está em andamento
+                                Se estiver, desabilita o click do botão
+                            */}                            
+                            {
+                                // Caso seja true, renderiza o botão desabilitado com o texto 'Loading...'
+                                this.state.isLoading === true &&
+                                <button type="submit" disabled>Loading...</button>
+                            }
+                            {
+                                // Caso seja false, renderiza o botão habilitado com o texto 'Login'
+                                this.state.isLoading === false &&
+                                <button type="submit">Login</button>
+                            }
                         </form>
                     </section>
                 </main>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 export default Login;
