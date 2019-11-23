@@ -20,8 +20,7 @@ O administrador do sistema gerencia todas as informações como listagem, cadast
 
 O banco de dados do projeto Gufos foi desenvolvido através das modelagens: conceitual, lógica e física
 
-Após a modelagem, foram gerados os scripts de criação (DDL), manipulação (DML) e consulta (DQL)
-
+Após a modelagem, foram gerados os scripts de criação (DDL), manipulação (DML) e consulta (DQL) utilizando MSSQL como linguagem
 
 ### Back-end
 
@@ -35,14 +34,11 @@ A estrutura foi dividida entre Domains, Controllers, Interfaces e Repositories
 
 Implementada autenticação e autorização utilizando JWT
 
-
 #### Observação
 
 A API desenvolvida com .NET Core 3.0 (./backend) está habilitada para requisições https usando a porta :5001
 
 A API desenvolvida com .NET Core 2.1 (./backend_2.1) está habilitada para requisições http usando a porta :5000
-
-
 
 ### Front-end
 
