@@ -9,6 +9,7 @@ import App from './pages/home/App';
 import Categorias from './pages/categorias/categorias';
 import Eventos from './pages/eventos/eventos';
 import Login from './pages/login/login';
+import NotFound from './pages/notfound/notfound';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -48,9 +49,11 @@ const routing = (
         <div>
             <Switch>
                 <Route exact path="/" component={App} /> {/* Home */}
+                <Route path="/login" component={Login} /> {/* Login */}
                 <PermissaoAdm path="/categorias" component={Categorias} /> {/* Categorias */}
                 <PermissaoAluno path="/eventos" component={Eventos} /> {/* Eventos */}
-                <Route path="/login" component={Login} /> {/* Login */}
+                <Route exact path="/NotFound" component={NotFound} /> {/* NotFound */}
+                <Redirect to = "/NotFound" /> {/* Redireciona para NotFound caso não encontre nenhuma rota */}
             </Switch>
         </div>
     </Router>
