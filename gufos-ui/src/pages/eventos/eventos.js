@@ -205,7 +205,7 @@ class Evento extends Component {
                                     <button type="submit" disabled>Loading...</button>
                                 }
                                 {
-                                    // Caso seja false, renderiza o botão habilitado com o texto 'Login'
+                                    // Caso seja false, renderiza o botão habilitado com o texto 'Cadastrar'
                                     this.state.isLoading === false &&
                                     <button type="submit">Cadastrar</button>
                                 }
