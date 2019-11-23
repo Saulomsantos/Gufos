@@ -52,6 +52,16 @@ class Login extends Component {
                 
                 // Exibe no console apenas o tipo de usuário logado
                 console.log(parseJwt().Role);
+
+                // Verifica se o tipo de usuário logado é Administrador
+                // Se for, redireciona para a página de categorias
+                if (parseJwt().Role === 'Administrador') {
+                    this.props.history.push('/categorias');
+                }
+                // Se não for, redireciona para a página de eventos
+                else {
+                    this.props.history.push('/eventos');
+                };
             };
         })
 
