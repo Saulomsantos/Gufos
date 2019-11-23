@@ -42,19 +42,21 @@ const PermissaoAluno = ({ component : Component }) => (
     />
 );
 
+// Define a constante routing que irá renderizar as páginas de acordo com a rota
 const routing = (
     <Router>
         <div>
             <Switch>
-                <Route exact path="/" component={App} />
-                <PermissaoAdm path="/categorias" component={Categorias} />
-                <PermissaoAluno path="/eventos" component={Eventos} />
-                <Route path="/login" component={Login} />
+                <Route exact path="/" component={App} /> {/* Home */}
+                <PermissaoAdm path="/categorias" component={Categorias} /> {/* Categorias */}
+                <PermissaoAluno path="/eventos" component={Eventos} /> {/* Eventos */}
+                <Route path="/login" component={Login} /> {/* Login */}
             </Switch>
         </div>
     </Router>
 );
 
+// Renderiza as rotas no body do index.html
 ReactDOM.render(routing, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
