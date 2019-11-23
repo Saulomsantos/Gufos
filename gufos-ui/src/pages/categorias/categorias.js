@@ -6,13 +6,13 @@ class Categoria extends Component {
         this.state = {
             listaCategorias : [],
             titulo : ''
-        }
+        };
 
         // Declara os estados das funções para que possam ser chamadas no componente
         this.atualizaEstadoTitulo = this.atualizaEstadoTitulo.bind(this);
         this.cadastraCategoria = this.cadastraCategoria.bind(this);
         this.buscarCategorias = this.buscarCategorias.bind(this);
-    }
+    };
 
     // Faz a chamada para a API usando fetch
     // e atualiza o state listaCategorias com os dados obtidos
@@ -21,18 +21,18 @@ class Categoria extends Component {
         fetch('https://localhost:5001/api/categorias')
         .then(resposta => resposta.json())
         .then(data => this.setState({ listaCategorias : data }))
-        .catch(erro => console.log(erro))
-    }
+        .catch(erro => console.log(erro));
+    };
 
     // Chama a função buscarCategorias() assim que a tela é renderizada
     componentDidMount(){
         this.buscarCategorias();
-    }
+    };
 
     // Atualiza o state titulo com o valor do input
     atualizaEstadoTitulo(event){
-        this.setState({ titulo : event.target.value })
-    }
+        this.setState({ titulo : event.target.value });
+    };
 
     // Função responsável por cadastrar uma categoria
     cadastraCategoria(event){
@@ -58,7 +58,7 @@ class Categoria extends Component {
         .then(resposta => {
             if (resposta.status === 200) {
                 console.log('Categoria cadastrada!');
-            }
+            };
         })
 
         // Caso ocorra algum erro,
@@ -68,7 +68,7 @@ class Categoria extends Component {
         // Então, atualiza a lista de categorias
         // sem o usuário precisar executar outra ação
         .then(this.buscarCategorias);
-    }    
+    };
 
     render(){
         return(
@@ -96,7 +96,7 @@ class Categoria extends Component {
                                                 <td>{categoria.categoriaId}</td>
                                                 <td>{categoria.titulo}</td>
                                             </tr>
-                                        )
+                                        );
                                     })
                                 }
                             </tbody>
