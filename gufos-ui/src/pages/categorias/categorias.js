@@ -5,7 +5,8 @@ class Categoria extends Component {
         super(props);
         this.state = {
             listaCategorias : [],
-            titulo : ''
+            titulo : '',
+            idCategoriaAlterada : 0
         };
 
         // Declara os estados das funções para que possam ser chamadas no componente
@@ -24,6 +25,15 @@ class Categoria extends Component {
         .catch(erro => console.log(erro));
     };
 
+    buscarCategoriaPorId = (categoria) => {
+        this.setState({ 
+            idCategoriaAlterada : categoria.categoriaId,
+            titulo : categoria.titulo
+         }, () => {
+            console.log(categoria.categoriaId, this.state.idCategoriaAlterada)
+        });
+    }
+
     // Chama a função buscarCategorias() assim que a tela é renderizada
     componentDidMount(){
         this.buscarCategorias();
@@ -40,34 +50,60 @@ class Categoria extends Component {
         // Ignora o comportamento padrão do navegador
         event.preventDefault();
 
-        // Faz a chamada para a API usando fetch
-        fetch('https://localhost:5001/api/categorias',
-        {
-            // Define o método da requisição ( POST )
-            method : 'POST',
-            // Define o corpo da requisição especificando o tipo ( JSON )
-            body : JSON.stringify({ titulo : this.state.titulo }),
-            // Define o cabeçalho da requisição
-            headers : {
-                "Content-Type" : "application/json"
+        fetch('https://localhost:5001/api/categorias/' + this.state.idCategoriaAlterada)
+        .then(resposta => {
+            if (resposta.data === null) {
+                // Faz a chamada para a API usando fetch
+                fetch('https://localhost:5001/api/categorias',
+                {
+                    // Define o método da requisição ( POST )
+                    method : 'POST',
+                    // Define o corpo da requisição especificando o tipo ( JSON )
+                    body : JSON.stringify({ titulo : this.state.titulo }),
+                    // Define o cabeçalho da requisição
+                    headers : {
+                        "Content-Type" : "application/json"
+                    }
+                })
+
+                // Caso a requisição retorne um status code 200,
+                // exibe no console do navegador a mensagem 'Categoria cadastrada!'
+                .then(resposta => {
+                    if (resposta.status === 200) {
+                        console.log('Categoria cadastrada!');
+                    };
+                })
+
+                // Caso ocorra algum erro,
+                // exibe este erro no console do navegador
+                .catch(erro => console.log(erro))
+
+                // Então, atualiza a lista de categorias
+                // sem o usuário precisar executar outra ação
+                .then(this.buscarCategorias);
+            }
+            else {
+                console.log(
+                    this.state.idCategoriaAlterada,
+                    this.state.titulo
+                )
+                fetch('https://localhost:5001/api/categorias/' + this.state.idCategoriaAlterada, 
+                {
+                    method : 'PUT',
+                    body : JSON.stringify({
+                        categoriaId : this.state.idCategoriaAlterada,
+                        titulo: this.state.titulo
+                    })
+                })
+                .then(resposta => {
+                    if (resposta.status === 200) {
+                        console.log('Categoria atualizada!');
+                    };
+                })
             }
         })
 
-        // Caso a requisição retorne um status code 200,
-        // exibe no console do navegador a mensagem 'Categoria cadastrada!'
-        .then(resposta => {
-            if (resposta.status === 200) {
-                console.log('Categoria cadastrada!');
-            };
-        })
-
-        // Caso ocorra algum erro,
-        // exibe este erro no console do navegador
-        .catch(erro => console.log(erro))
-
-        // Então, atualiza a lista de categorias
-        // sem o usuário precisar executar outra ação
-        .then(this.buscarCategorias);
+        
     };
 
     render(){
@@ -82,6 +118,7 @@ class Categoria extends Component {
                                 <tr>
                                     <th>#</th>
                                     <th>Título</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
 
@@ -90,11 +127,16 @@ class Categoria extends Component {
                                 {
                                     // Percorre a lista e preenche o corpo da tabela com o ID 
                                     // e o Título de cada categoria
-                                    this.state.listaCategorias.map(function(categoria){
+                                    this.state.listaCategorias.map((categoria) => {
                                         return (
                                             <tr key={categoria.categoriaId}>
                                                 <td>{categoria.categoriaId}</td>
                                                 <td>{categoria.titulo}</td>
+                                                <td>
+                                                    {/* Faz a chamada para a função  */}
+                                                    <button onClick={ () => { this.buscarCategoriaPorId(categoria) } }>Editar</button>
+                                                    <button>Excluir</button>
+                                                </td>
                                             </tr>
                                         );
                                     })
