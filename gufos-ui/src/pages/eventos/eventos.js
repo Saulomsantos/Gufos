@@ -45,7 +45,7 @@ class Evento extends Component {
         .catch(erro => console.log(erro));
     };
 
-    // Chama as funções buscarCategorias() e buscarEventos() assim que a tela é renderizada
+    // Chama as funções buscaCategorias() e buscarEventos() assim que a tela é renderizada
     componentDidMount(){
         this.buscaCategorias();
         this.buscarEventos();
@@ -95,7 +95,7 @@ class Evento extends Component {
             this.setState({ isLoading : false });
         })
 
-        // Chama a função buscarCategorias() para atualizar a lista de eventos
+        // Chama a função buscarEventos() para atualizar a lista de eventos
         // sem o usuário precisar executar outra ação
         .then(this.buscarEventos.bind(this));
     };
@@ -214,8 +214,8 @@ class Evento extends Component {
                     </section>
                 </main>
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
 export default Evento;
