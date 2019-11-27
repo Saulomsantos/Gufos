@@ -16,7 +16,7 @@ class Evento extends Component {
     };
 
     // Faz a chamada para a API
-    buscaCategorias(){
+    buscarCategorias(){
         Axios.get('https://localhost:5001/api/categorias')
         .then(resposta => {
             // Caso retorne um status code 200, atualiza o state listaCategorias com os dados obtidos
@@ -45,9 +45,9 @@ class Evento extends Component {
         .catch(erro => console.log(erro));
     };
 
-    // Chama as funções buscaCategorias() e buscarEventos() assim que a tela é renderizada
+    // Chama as funções buscarCategorias() e buscarEventos() assim que a tela é renderizada
     componentDidMount(){
-        this.buscaCategorias();
+        this.buscarCategorias();
         this.buscarEventos();
     };
 
@@ -79,7 +79,7 @@ class Evento extends Component {
 
         // Verifica o retorno da requisição
         .then(data => {
-            // Caso retorne status code 200,            
+            // Caso retorne status code 200,
             if (data.status === 200) {
                 // exibe no console do navegador a mensagem 'Evento cadastrado!'
                 console.log('Evento cadastrado!');
