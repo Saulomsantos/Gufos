@@ -125,7 +125,11 @@ class Login extends Component {
                             {
                                 // Caso seja false, renderiza o botão habilitado com o texto 'Login'
                                 this.state.isLoading === false &&
-                                <button type="submit">Login</button>
+                                <button
+                                    type="submit"
+                                    disabled={this.state.email === '' || this.state.senha === '' ? 'none' : ''}>
+                                        Login
+                                </button>
                             }
                         </form>
                     </section>
