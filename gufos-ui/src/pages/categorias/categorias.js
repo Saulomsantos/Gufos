@@ -238,7 +238,7 @@ class Categoria extends Component {
                                 {/* Uma outra forma, com if ternário */}
 
                                 {
-                                    <button type="submit">
+                                    <button type="submit" disabled={this.state.titulo === '' ? 'none' : ''}>
                                         {this.state.idCategoriaAlterada === 0 ? "Cadastrar" : "Atualizar"}
                                     </button>
                                 }
