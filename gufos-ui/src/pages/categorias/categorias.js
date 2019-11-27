@@ -238,7 +238,9 @@ class Categoria extends Component {
                                 {/* Uma outra forma, com if ternário */}
 
                                 {
-                                    <button type="submit">{this.state.idCategoriaAlterada === 0 ? "Cadastrar" : "Editar"}</button>
+                                    <button type="submit">
+                                        {this.state.idCategoriaAlterada === 0 ? "Cadastrar" : "Atualizar"}
+                                    </button>
                                 }
 
                                 {/* Faz a chamada da função limparCampos */}
